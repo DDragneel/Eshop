@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+{% block body %}
+<div class="cart-table-area section-padding-100">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <div class="checkout_details_area mt-50 clearfix">
+
+                            <div class="cart-title">
+                                <h2>LOGIN</h2>
+                            </div>
+
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <input type="text" class="form-control" name="uname" placeholder="UserName">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <input type="password" class="form-control" name="pward">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <button type="submit" class="btn btn-info">Login</button>
+                                        <a class="btn btn-info" href="/signup/">SignUp</a>
+                                    </div>
+                                </div>
+                            </form>
+                            {% if messages %}
+                            <div class="alert alert-danger">
+                                {% for i in messages %}
+                                    {{i}}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock body %}
+</html>

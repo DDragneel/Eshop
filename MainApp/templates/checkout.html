@@ -1,0 +1,82 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+{% block body %}
+        <div class="cart-table-area section-padding-100">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <div class="checkout_details_area mt-50 clearfix">
+
+                            <div class="cart-title">
+                                <h2>Checkout</h2>
+                            </div>
+
+                            <form action="#" method="post">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <input type="text" class="form-control" name="name" value="" placeholder="Name" required>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <input type="text" class="form-control" name="mobile" placeholder="Mobile Number" value="">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <input type="email" class="form-control" name="email" placeholder="Email" value="">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <select class="w-100" name="state">
+                                        <option value="haryana">Haryana</option>
+                                        <option value="delhi">Delhi</option>
+                                        <option value="punjab">Punjab</option>
+                                        <option value="up">Utter Pardesh</option>
+                                        <option value="mp">Madhya Pardesh</option>
+                                        <option value="mh">Maharastra</option>
+                                        <option value="rj">rajisthan</option>
+                                        <option value="hm">Himachal</option>
+                                    </select>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <input type="text" class="form-control mb-3" name="city" placeholder="City" value="">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <input type="text" class="form-control" name="address" placeholder="Address" value="">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input type="text" class="form-control" name="pin" placeholder="Pin Code" value="">
+                                    </div>
+                                    </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="cart-summary">
+                            <h5>Cart Total</h5>
+                            <ul class="summary-table">
+                                <li><span>subtotal:</span> <span>{{Total}}</span></li>
+                                <li><span>delivery:</span> <span>Free</span></li>
+                                <li><span>total:</span> <span>{{Total}}</span></li>
+                            </ul>
+                            <div class="col-12 mb-3">
+                                        <select class="w-100" name="choice">
+                                        <option value="COD">COD</option>
+                                        <option value="Paypal">PayPal</option>
+                                    </select>
+                            <div class="cart-btn mt-100">
+                                <button type="submit" class="btn amado-btn w-100">CheckOut</button>
+                            </div>
+                            </form>
+                            {% if messages %}
+                            {% for i in messages %}
+                            {{i}}
+                            {% endfor %}
+                            {% endif %}
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Main Content Wrapper End ##### -->
+
+{% endblock body %}
+</html>

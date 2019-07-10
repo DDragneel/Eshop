@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+{% block body %}
+        <div class="cart-table-area section-padding-100">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <div class="checkout_details_area mt-50 clearfix">
+
+                            <div class="alert alert-primary">
+                                <h2>Edit Product</h2>
+                            </div>
+
+                            <form action="#" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <select class="w-100" name="cat">
+                                            {% for i in Cat %}
+                                        <option value={{i}}>{{i}}</option>
+                                            {% endfor %}
+                                    </select>
+                                    </div>
+
+                                    <div class="col-md-12 mb-3">
+                                        <input type="text" class="form-control" name="name" value="{{Data.name}}">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <input type="text" class="form-control" name="description" value="{{Data.description}}">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <input type="number" class="form-control" name="basicPrice" value="{{Data.basicPrice}}">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <input type="number" class="form-control mb-3" name="discount" value="{{Data.discount}}">
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <input type="text" class="form-control" name="color" value="{{Data.color}}">
+                                    </div>
+                                        <button type="submit" class="btn btn-info">Edit</button>
+                                    </div>
+                                </div>
+                            </form>
+                            {% if messages %}
+                                <div class="alert alert-success">
+                                {%for i in messages%}
+                                    {{i}}
+                                {%endfor%}
+                                </div>
+                            {%endif%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Main Content Wrapper End ##### -->
+
+{% endblock body %}
+</html>

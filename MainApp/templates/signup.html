@@ -1,0 +1,57 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+{% block body %}
+        <div class="cart-table-area section-padding-100">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <div class="checkout_details_area mt-50 clearfix">
+
+                            <div class="cart-title">
+                                <h2>SignUp</h2>
+                            </div>
+
+                            <form action="#" method="post">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <input type="text" class="form-control" name="uname" placeholder="User Name" value="">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input type="text" class="form-control" name="first_name" value="" placeholder="First Name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input type="text" class="form-control" name="last_name" value="" placeholder="Last Name" required>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <input type="email" class="form-control" name="email" placeholder="Mail Id" value="">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <input type="password" class="form-control" name="pward" placeholder="Password" value="">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <input type="password" class="form-control" name="cpward" placeholder="Confirm Password" value="">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <button type="submit" class="btn btn-primary">SignUp</button>
+                                    </div>
+                                </div>
+                            </form>
+                            {% if messages %}
+                            <div class="alert alert-danger">
+                                {% for i in messages %}
+                                    {{i}}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Main Content Wrapper End ##### -->
+
+{% endblock body %}
+</html>
